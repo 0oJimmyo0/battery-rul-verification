@@ -1,0 +1,19 @@
+general:
+  device: cpu
+  seed: 42
+  save_output: true
+  save_adv_example: false
+  enable_incomplete_verification: true
+model:
+  name: custom
+  onnx_path: /gpfs/radev/scratch/xu_hua/mj756/course_proj/NNV/verification_bounds/cycle_model.onnx
+  input_shape:
+  - -1
+  - 1
+specification:
+  vnnlib_path: /gpfs/radev/scratch/xu_hua/mj756/course_proj/NNV/verification_bounds/monotonicity.vnnlib
+solver:
+  bound_prop_method: ibp
+  batch_size: 4096
+attack:
+  pgd_order: skip

@@ -1,0 +1,13 @@
+; VNNLIB for cycle monotonicity verification with smaller input range
+; Input: cycle
+(declare-const X_0 Real)
+
+; Output: RUL
+(declare-const Y_0 Real)
+
+; Input bounds: cycle in [100.0, 150.0]
+(assert (<= X_0 150.0))
+(assert (>= X_0 100.0))
+
+; Output constraint: RUL >= 0 (non-negativity)
+(assert (>= Y_0 0.0))

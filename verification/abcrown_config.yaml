@@ -1,0 +1,21 @@
+general:
+  device: cpu  # Changed from cuda since no GPU available
+  seed: 42
+  complete_verifier: bab
+model:
+  name: custom
+  onnx_path: /gpfs/radev/scratch/xu_hua/mj756/course_proj/NNV/verification/monotonicity_wrapper.onnx
+  input_shape:
+  - -1
+  - 20
+specification:
+  vnnlib_path: /gpfs/radev/scratch/xu_hua/mj756/course_proj/NNV/verification/monotonicity_pairwise.vnnlib
+bab:
+  timeout: 3600
+  initial_max_domains: 1
+  branching:
+    method: kfsb
+    candidates: 3
+solver:
+  bound_prop_method: alpha-crown
+  batch_size: 2048

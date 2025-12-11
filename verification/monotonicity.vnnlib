@@ -1,0 +1,66 @@
+; VNNLIB file for monotonicity verification
+; Property: For any inputs x1, x2 where cycle2 > cycle1 and u2 = u1, verify RUL(x2) <= RUL(x1)
+; This is equivalent to: output is non-increasing in cycle when other features are held constant
+
+; Input variables (10 features: cycle, chI, chV, chT, disI, disV, disT, BCt, abn_chT, abn_disT)
+(declare-const X_0 Real)  ; cycle
+(declare-const X_1 Real)  ; chI
+(declare-const X_2 Real)  ; chV
+(declare-const X_3 Real)  ; chT
+(declare-const X_4 Real)  ; disI
+(declare-const X_5 Real)  ; disV
+(declare-const X_6 Real)  ; disT
+(declare-const X_7 Real)  ; BCt
+(declare-const X_8 Real)  ; abn_chT
+(declare-const X_9 Real)  ; abn_disT
+
+; Output variable (RUL)
+(declare-const Y_0 Real)
+
+; Input bounds
+(assert (<= 3.19 X_0))
+(assert (<= X_0 217.81))
+(assert (<= 1.1742619526941498 X_1))
+(assert (<= X_1 1.6451493890938511))
+(assert (<= 4.099813122675715 X_2))
+(assert (<= X_2 4.296780684084594))
+(assert (<= 23.996226039315946 X_3))
+(assert (<= X_3 30.402296733647553))
+(assert (<= 1.7741620301210748 X_4))
+(assert (<= X_4 2.1994000275593146))
+(assert (<= 2.749769282812329 X_5))
+(assert (<= X_5 4.188651872884929))
+(assert (<= 29.54570981046594 X_6))
+(assert (<= X_6 37.58257957741359))
+(assert (<= 0.9111500389164169 X_7))
+(assert (<= X_7 1.9827410485099723))
+(assert (<= 0.008823193666533058 X_8))
+(assert (<= X_8 5.402296733647553))
+(assert (<= 4.54570981046594 X_9))
+(assert (<= X_9 12.58257957741359))
+
+; Monotonicity property: For any two inputs where cycle2 > cycle1 and u2 = u1, RUL2 <= RUL1
+; This is verified by checking: if we increase cycle while keeping others constant, output decreases
+; We'll use a simplified property: for cycle in [c_min, c_max], if we fix u and vary cycle,
+; the output should be non-increasing.
+
+; Note: VNNLIB format for monotonicity is complex. For now, we'll use a simpler approach:
+; Verify that for any input x, if we create x' by increasing cycle and keeping others same,
+; then output(x') <= output(x)
+
+; For practical verification, we'll check a specific instance:
+; Base input: cycle = c1, others fixed
+; Compare input: cycle = c2 > c1, others same
+; Property: output(c2, u) <= output(c1, u)
+
+; Since VNNLIB doesn't directly support this, we'll use a workaround:
+; Check that the model is monotone by verifying multiple pairs
+
+; For now, let's define a property that checks monotonicity at boundaries:
+; If cycle = c_min, output = y_min
+; If cycle = c_max, output = y_max  
+; Property: y_max <= y_min (since cycle_max > cycle_min, and RUL should decrease)
+
+; However, this is too restrictive. Instead, we'll verify using a custom approach.
+; The actual verification will be done programmatically.
+

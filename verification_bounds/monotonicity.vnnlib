@@ -1,0 +1,18 @@
+; VNNLIB for cycle monotonicity verification with bounds output
+; Input: cycle
+(declare-const X_0 Real)
+
+; Output: RUL
+(declare-const Y_0 Real)
+
+; Input bounds: cycle in [3.19, 217.81]
+(assert (<= X_0 217.81))
+(assert (>= X_0 3.19))
+
+; Output constraint: RUL >= 0 (non-negativity)
+; This constraint helps trigger bounds computation
+(assert (>= Y_0 0.0))
+
+; Note: For monotonicity verification, we compute bounds on RUL
+; for the entire cycle range and check if they satisfy:
+; RUL(cycle_max) <= RUL(cycle_min)

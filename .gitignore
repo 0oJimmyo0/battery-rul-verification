@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files (large)
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.pth.tar
+
+# Data files (large)
+*.csv
+*.json
+*.npy
+*.npz
+
+# Logs
+*.log
+logs/
+
+# Output directories (keep structure, ignore large files)
+mbd_pt/*.pt
+mbd_pt/*.onnx
+prep_out/*.csv
+verification_bounds/*.onnx
+verification_bounds/*.pkl
+verification_bounds/*.txt
+
+# Alpha-beta-CROWN (external dependency)
+alpha-beta-CROWN/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Slurm output
+*.out
+*.err
+slurm-*.out
+
