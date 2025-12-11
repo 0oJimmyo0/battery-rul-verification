@@ -12,16 +12,19 @@ The project implements:
 ## Repository Structure
 
 ```
-NNV/
-├── preprocess.py              # Data preprocessing pipeline
-├── mbd_train.py              # MbD model training script
-├── verify_with_bounds_simple.py  # Verification setup script
-├── investigate_verification_issues.py  # Verification diagnostics
-├── final_report.md           # Complete project report
-├── prep_out/                 # Preprocessed data
-├── mbd_pt/                   # Trained model outputs
-├── verification_bounds/       # Verification configurations
-└── plots/                    # Visualization outputs
+/
+├── final_report.md            # Complete project report (all models)
+├── README.md                  # This file
+├── LICENSE                    # License file
+└── MbD/                       # Monotone-by-Design model implementation
+    ├── preprocess.py          # Data preprocessing pipeline
+    ├── mbd_train.py           # MbD model training script
+    ├── verify_with_bounds_simple.py  # Verification setup script
+    ├── investigate_verification_issues.py  # Verification diagnostics
+    ├── prep_out/              # Preprocessed data
+    ├── mbd_pt/                # Trained model outputs
+    ├── verification_bounds/    # Verification configurations
+    └── plots/                 # Visualization outputs
 ```
 
 ## Requirements
@@ -37,25 +40,28 @@ NNV/
 ### 1. Data Preprocessing
 
 ```bash
+cd MbD
 python preprocess.py --input Battery_dataset.csv --outdir ./prep_out
 ```
 
 ### 2. Model Training
 
 ```bash
+cd MbD
 python mbd_train.py --data_dir ./prep_out --out_dir ./mbd_pt
 ```
 
 ### 3. Verification Setup
 
 ```bash
+cd MbD
 python verify_with_bounds_simple.py --model_dir ./mbd_pt --data_dir ./prep_out
 ```
 
 ### 4. Run Verification
 
 ```bash
-cd alpha-beta-CROWN/complete_verifier
+cd MbD/alpha-beta-CROWN/complete_verifier
 python abcrown.py --config /path/to/verification_bounds/config.yaml
 ```
 
