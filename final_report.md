@@ -32,7 +32,7 @@ where $z = 1 - \frac{x_c - C_{\min}}{C_{\max} - C_{\min}} \in [0,1]$ is the norm
 
 The model contains approximately 10,000 parameters with 5 ReLU units. Training uses Adam optimizer (learning rate $10^{-3}$, weight decay $10^{-5}$), batch size 128, MSE loss, ReduceLROnPlateau scheduling, early stopping (patience 20 epochs), and gradient clipping (max norm 10.0). On the test set, the model achieves MAE = 34.31 cycles and RMSE = 35.88 cycles, with train/validation MAE of 7.55 and 5.53 cycles respectively. Figure 1 demonstrates that predictions maintain monotonicity while capturing degradation trends.
 
-![MbD Model Predictions Over Cycle](plots/predictions_over_cycle_test.png)
+![MbD Model Predictions Over Cycle](MbD/plots/predictions_over_cycle_test.png)
 
 *Figure 1: MbD model predictions (blue) vs. true RUL (orange) over cycle number on the test set, demonstrating monotonicity preservation.*
 
