@@ -75,7 +75,3 @@ python abcrown.py --config /path/to/verification_bounds/config.yaml
 
 If you use this code, please cite the relevant papers (see `final_report.md` for full citations).
 
-## License
-
-[Add your license here]
-
