@@ -1,6 +1,8 @@
-# Battery Remaining Useful Life Prediction with Monotone-by-Design Neural Networks
+# Battery Remaining Useful Life Prediction with Monotonicity Verification
 
 **Authors:** Mingyang Jiang, Wenrong Wu, Borui Gu, Kun Chen
+
+https://github.com/0oJimmyo0/battery-rul-verification
 
 ## Introduction
 
